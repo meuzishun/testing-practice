@@ -1,4 +1,4 @@
-import reverseString from '../code/reverseString.js';
+import { reverseString } from '../code/reverseString.js';
 
 test('Strings should reverse', () => {
   expect(reverseString('racecar')).toBe('racecar');
