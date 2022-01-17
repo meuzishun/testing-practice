@@ -29,6 +29,18 @@ test('11 + obj throws Error', () => {
   );
 });
 
+test('11 + obj throws Error', () => {
+  expect(() => calculator.add(11, null)).toThrow(
+    'Both arguments must be numbers'
+  );
+});
+
+test('11 + obj throws Error', () => {
+  expect(() => calculator.add(11, undefined)).toThrow(
+    'Both arguments must be numbers'
+  );
+});
+
 // ====== SUBTRACTION TESTS ======
 test('2 - 1 = 1', () => {
   expect(calculator.subtract(2, 1)).toBe(1);
