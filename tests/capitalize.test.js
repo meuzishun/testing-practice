@@ -29,23 +29,19 @@ test('Works with empty string', () => {
 });
 
 test('Throws error for non-string arguments', () => {
-  () => expect(capitalize(123)).toThrow('Only string arguments accepted');
+  expect(() => capitalize(123)).toThrow('Only string arguments accepted');
 });
 
 test('Throws error for non-string arguments', () => {
-  () => {
-    expect(capitalize(['words', 'more', 'stuff'])).toThrow(
-      'Only string arguments accepted'
-    );
-  };
+  expect(() => capitalize(['words', 'more', 'stuff'])).toThrow(
+    'Only string arguments accepted'
+  );
 });
 
 test('Throws error for non-string arguments', () => {
-  () => {
-    expect(capitalize({ name: 'cat', isIn: 'hat' })).toThrow(
-      'Only string arguments accepted'
-    );
-  };
+  expect(() => capitalize({ name: 'cat', isIn: 'hat' })).toThrow(
+    'Only string arguments accepted'
+  );
 });
 
 test('Tame the madness', () => {
