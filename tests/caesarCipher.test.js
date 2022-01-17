@@ -45,6 +45,30 @@ test('encode works with non-letters', () => {
   );
 });
 
+test('encode only accepts strings', () => {
+  expect(() =>
+    caesarCipher.encode(['the', 'Cat', '&%', 'the', 'Hat'], 1)
+  ).toThrow('Only strings accepted');
+});
+
+test('encode only accepts strings', () => {
+  expect(() => caesarCipher.encode({ the: 'Cat', his: 'Hat' }, 1)).toThrow(
+    'Only strings accepted'
+  );
+});
+
+test('Provide shifted value', () => {
+  expect(() => caesarCipher.encode('the cat in the hat')).toThrow(
+    'Must provide a shifted number'
+  );
+});
+
+test('Provide shifted value', () => {
+  expect(caesarCipher.encode('the cat in the hat', 0)).toBe(
+    'the cat in the hat'
+  );
+});
+
 // ======DECODING TESTS======
 
 test('unshifting bcd by 1 returns abc', () => {
@@ -88,5 +112,29 @@ test('decode works with multiple cases and large shifts', () => {
 test('decode works with non-letters', () => {
   expect(caesarCipher.decode('uif Dbu &% uif Ibu', 1)).toBe(
     'the Cat &% the Hat'
+  );
+});
+
+test('encode only accepts strings', () => {
+  expect(() =>
+    caesarCipher.decode(['uif', 'Dbu', '&%', 'uif', 'Ibu'], 1)
+  ).toThrow('Only strings accepted');
+});
+
+test('encode only accepts strings', () => {
+  expect(() => caesarCipher.decode({ uif: 'Dbu', uif: 'Ibu' }, 1)).toThrow(
+    'Only strings accepted'
+  );
+});
+
+test('Provide shifted value', () => {
+  expect(() => caesarCipher.decode('uif dbu jo uif ibu')).toThrow(
+    'Must provide a shifted number'
+  );
+});
+
+test('Provide shifted value', () => {
+  expect(caesarCipher.decode('the cat in the hat', 0)).toBe(
+    'the cat in the hat'
   );
 });

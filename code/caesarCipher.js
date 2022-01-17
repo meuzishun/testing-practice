@@ -1,5 +1,11 @@
 const caesarCipher = {
   encode: function (str, shift) {
+    if (typeof str !== 'string') {
+      throw new Error('Only strings accepted');
+    }
+    if (typeof shift !== 'number') {
+      throw new Error('Must provide a shifted number');
+    }
     return str
       .split('')
       .map((letter) => {
@@ -30,6 +36,12 @@ const caesarCipher = {
       .join('');
   },
   decode: function (str, shift) {
+    if (typeof str !== 'string') {
+      throw new Error('Only strings accepted');
+    }
+    if (typeof shift !== 'number') {
+      throw new Error('Must provide a shifted number');
+    }
     return str
       .split('')
       .map((letter) => {
